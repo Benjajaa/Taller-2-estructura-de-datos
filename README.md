@@ -89,5 +89,5 @@ Para **Tic-Tac-Toe**:
 
 Para compilar y ejecutar el programa, utiliza los siguientes comandos:
 
-- **Compilar:** PONER AL FINAL AQUI
-- **Ejecutar:** AQUI TAMBIEN
+- **Compilar:** `g++ main.cpp App.cpp Sistema.cpp Tablero.cpp -o Main`
+- **Ejecutar:** `./Main`
