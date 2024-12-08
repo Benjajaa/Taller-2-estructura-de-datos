@@ -63,7 +63,7 @@ La **Poda Alfa-Beta** es una mejora del algoritmo Minimax que reduce el número 
   - \(b\): Número de movimientos posibles (factor de ramificación).
   - \(d\): Profundidad del árbol de decisiones.
 
-Para **Tic-Tac-Toe**:
+Para el juego `Gato`:
 - \(b <= 9\), \(d <= 9\).
 - Nodos a evaluar en el peor caso: \(9^9 = 387,420,489\).
 
