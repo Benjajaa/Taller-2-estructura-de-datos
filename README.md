@@ -77,6 +77,25 @@ Para **Tic-Tac-Toe**:
 | **Minimax**          | \(O(b^d)\)      | 387,420,489         |
 | **Poda Alfa-Beta**   | \(O(b^{d/2})\)  | 31,623              |
 
+## **Diagrama del árbol de juego**
+
+El siguiente diagrama representa un árbol de decisiones para el juego `Gato` con 3 niveles. Los números en las hojas son los valores de utilidad para el jugador Max:
+
+```plaintext
+              Max
+             /   \
+           Min    Min
+          / | \   / | \
+         Max Max Max Max Max Max
+        / |  |   |   |   |   |  \
+       3  5  2   9   6   1   4   7
+```
+
+### Explicación:
+1. **Nivel 1 (Max):** El jugador Max comienza tomando decisiones.
+2. **Nivel 2 (Min):** El jugador Min busca minimizar el puntaje de utilidad para Max.
+3. **Nivel 3 (Max):** Finalmente, Max analiza las posibles opciones para maximizar su puntaje.
+
 ## Estructura del Código
 
 - **Lenguaje de Programación:** C++
