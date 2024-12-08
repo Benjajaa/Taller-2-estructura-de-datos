@@ -1,13 +1,9 @@
-//
-// Created by Cuello on 06-12-2024.
-//
 
 #include "Sistema.h"
 
-#include <bits/ctype_base.h>
 
-// Instancia Estatica (singleton
-Sistema* Sistema::instancia = nullptr; // PUNTERO TIPO SISTEMA , que crea variable instancia que pertenece a la clase sistema y es estatica
+// Instancia Estatica (singleton)
+Sistema* Sistema::instancia = nullptr; 
 
 // Constructor privado
 Sistema::Sistema() {
@@ -16,7 +12,6 @@ Sistema::Sistema() {
 
 //Destructor
 Sistema::~Sistema() {
-
     }
 
 // Metodo para obtener la instancia
@@ -26,13 +21,13 @@ Sistema* Sistema::obtenerInstancia() {
     }
     return instancia;
 }
-
+//Funcion para iniciar el juego
 void Sistema::iniciarElJuego(char jugadorInicial) {
     tablero.iniciar();
 
     turnoActual = jugadorInicial;
 }
-
+//Funcion para obtener el tablero
 std::string& Sistema::obtenerElTablero() {
     tableroenString.clear();
     for (int f = 0; f < 3; f++) {
@@ -53,15 +48,19 @@ std::string& Sistema::obtenerElTablero() {
     }
     return tableroenString;
 }
+//Funcion para verificar si hay ganador
 char Sistema::verificarSiHayGanador() {
     return tablero.verificarGanador();
 }
+//Funcion para verificar si quedan movimientos
 bool Sistema::hayMovimientos() {
     return tablero.hayMovimientos();
 }
+// Funcion para obtener el turno del jugador actual
 char Sistema::obtenerElTurnoActual() const{
     return turnoActual;
 }
+//Funcion para realizar el movimiento del jugador humano
 bool Sistema::movimientoJugador(int fila, int columna) {
     if (turnoActual != 'X') {
         return false;
@@ -72,6 +71,7 @@ bool Sistema::movimientoJugador(int fila, int columna) {
     }
     return realizado;
 }
+//Funcion para cambiar el turno
 void Sistema::cambiarTurno() {
     if (turnoActual == 'X') {
         turnoActual = 'O';
@@ -80,6 +80,7 @@ void Sistema::cambiarTurno() {
         turnoActual = 'X';
     }
 }
+//Funcion para el turno de la IA
 std::string Sistema::turnoIA() {
     std::string resultado = "";
     int mejorValor = -1000;
@@ -114,11 +115,11 @@ std::string Sistema::turnoIA() {
     return resultado;
 }
 
-
+//Funcion para el Minimax
 int Sistema::minimax(int nivelArbol, bool turnoIA, int alfa, int beta) {
     int evaluacion = evaluarTablero();
 
-    // Si hay un ganador o no hay movimientos posibles, retornar la evaluación
+    
     if (evaluacion == 10 || evaluacion == -10 || !hayMovimientos()) {
         return evaluacion;
     }
@@ -177,24 +178,23 @@ int Sistema::minimax(int nivelArbol, bool turnoIA, int alfa, int beta) {
         return peorPuntuacion;
     }
 }
-
+//Funcion para evaluar el tablero
 int Sistema::evaluarTablero()  {
-    // Verificar si hay un ganador
+    
     char ganador = tablero.verificarGanador();
 
-    // Si la IA gano
     if (ganador == 'O') {
         return 10;
     }
 
-    // Si el jugador gano
+ 
     if (ganador == 'X') {
         return -10;
     }
 
-    // Si no hay ganador, devolver 0
     return 0;
 }
+//Funcion para verificar el ganador
 char Sistema::verificarGanador()  {
     return tablero.verificarGanador();
 }

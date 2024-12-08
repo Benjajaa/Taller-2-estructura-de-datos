@@ -46,7 +46,7 @@ void App::opcion1() {
             respuesta = preguntar("Respuesta invalida. Por favor ingrese X para el jugador, O para IA");
         }
     } while (valido == false);
-    sistema->iniciarElJuego(respuesta[0]); // es asi pa pasar un char y no un string
+    sistema->iniciarElJuego(respuesta[0]); 
     print("Una nueva partida se ha iniciado :o ");
 }
 
@@ -102,10 +102,12 @@ void App::ejecutar() {
             opcion4();
         }
         else if (opcion == "5") {
-            print("Cerando el programa, gracias por jugar :D");
+            print("Cerrando el programa, gracias por jugar :D");
         }
     } while (opcion != "5");
 }
+
+//Logica del turno del jugador
 void App::turnoJugador() {
     print("Tu turno jugador (X)");
     bool valido = false;
@@ -138,6 +140,7 @@ void App::turnoJugador() {
     print(sistema->obtenerElTablero());
 }
 
+//Funcion para comprobar si el numero es valido
 bool App::comprobarSiEsNumeroValido(const std::string &string) {
     if (string == "1" || string == "2" || string == "3") {
         return true;
@@ -145,6 +148,7 @@ bool App::comprobarSiEsNumeroValido(const std::string &string) {
     return false;
 }
 
+//Funcion para converir el string a int
 int App::convertirANumero(const std::string &string) {
     if (string == "1") {
         return 0;
@@ -166,7 +170,7 @@ void App::opcion4() {
         if (sistema->hayMovimientos()) {
             print("Sin ganador hasta ahora, la partida puede seguir :o");
         } else {
-            print("Empate, no hay mas movimientos posibles, inicie una nueva partida .");
+            print("Empate, no hay mas movimientos posibles, inicie una nueva partida ");
         }
     } else if (ganador == 'X') {
         print("El ganador es: X (Jugador)");

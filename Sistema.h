@@ -1,6 +1,3 @@
-//
-// Created by Cuello on 06-12-2024.
-//
 
 #ifndef SISTEMA_H
 #define SISTEMA_H
